@@ -1,0 +1,34 @@
+# Python and environments
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+env/
+.conda/
+conda-meta/
+
+# Local datasets and future experiments
+data/
+training_outputs*/
+evaluation_outputs*/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.ipynb_checkpoints/
+
+# Build, caches, logs, and temporary files
+build/
+dist/
+*.egg-info/
+.cache/
+.pytest_cache/
+logs/
+*.log
+temp/
+tmp/
+scratch/
+condaenv.*.requirements.txt
+.streamlit/secrets.toml
