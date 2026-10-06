@@ -116,6 +116,10 @@ The cleaned training code sorts input paths and aggregates weighted loss using t
 
 The saved confusion matrix contains **297 correct predictions out of 349 test images**, consistent with the reported accuracy and F1 scores. Twelve epochs are recorded in `models/training_history.json`.
 
+![Saved confusion matrix](presentation_outputs/confusion_matrix.png)
+
+Rows show actual classes; columns show predicted classes. Diagonal entries are correct predictions.
+
 ## Per-Class Performance
 
 | Class | Precision | Recall | F1 | Test support |
@@ -133,11 +137,19 @@ The saved confusion matrix contains **297 correct predictions out of 349 test im
 
 ADVE, News, and Email have the strongest saved F1 scores. Scientific is weakest. The matrix shows Scientific being predicted as Letter, Memo, and Report in three cases each; the cause cannot be established from the matrix alone. Small class supports limit how broadly these results can be generalized.
 
+![Saved per-class precision-recall curves](presentation_outputs/precision_recall.png)
+
+The curves show precision versus recall across score thresholds for each class. The legend reports saved average precision (AP) values.
+
 ## Grad-CAM Explainability
 
 Grad-CAM uses activations and gradients from the final MobileNetV2 feature block to estimate regions with positive contributions to the selected class score. Its 12×12 map is resized and blended with the document for display. Warm colors indicate larger normalized contributions within that image.
 
 The overlay is an approximate visual explanation. It does not establish semantic understanding, and color intensities should not be compared as absolute importance across images.
+
+![Historical prediction and Grad-CAM example](presentation_outputs/prediction_gradcam.png)
+
+This supplied screenshot shows a prediction alongside the original document and its Grad-CAM overlay. Its older confidence/layout wording differs from the corrected application; softmax scores are not calibrated confidence.
 
 ## Streamlit Application
 
